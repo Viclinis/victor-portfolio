@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Reveal from "@/components/reveal";
 
 export default function About() {
   return (
@@ -24,9 +25,11 @@ export default function About() {
             About Me
           </p>
 
+        <Reveal>
           <h2 className="text-4xl font-bold leading-tight text-white md:text-6xl">
             Creating scalable digital experiences through technology.
           </h2>
+        </Reveal>
 
           <p className="mt-8 text-lg leading-relaxed text-zinc-400">
             Software Engineer and MSc in ICT specialized in mobile development,

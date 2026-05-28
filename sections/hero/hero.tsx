@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import MagneticButton from "@/components/magnetic-button";
 
 export default function Hero() {
   return (
@@ -8,10 +9,14 @@ export default function Hero() {
       
       {/* Background Effects */}
       <div className="absolute inset-0">
+        
+        {/* Glow Left */}
         <div className="absolute left-[-10%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-3xl" />
 
+        {/* Glow Right */}
         <div className="absolute bottom-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-3xl" />
 
+        {/* Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]" />
       </div>
 
@@ -19,14 +24,36 @@ export default function Hero() {
         
         {/* LEFT SIDE */}
         <div>
+
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-400 backdrop-blur-xl"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: [0, -10, 0],
+            }}
+            transition={{
+              opacity: {
+                duration: 0.8,
+              },
+
+              scale: {
+                duration: 0.8,
+              },
+
+              y: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+            className="relative"
           >
             Software Architect & Mobile Developer
           </motion.div>
 
+          {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,6 +68,7 @@ export default function Hero() {
             experiences for modern businesses.
           </motion.h1>
 
+          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,26 +80,38 @@ export default function Hero() {
             AI-powered solutions for startups and enterprises.
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-10 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 p-2 backdrop-blur-xl"
           >
-            <a href="/cv.pdf" download className="rounded-full bg-blue-500 px-8 py-4 font-medium text-white transition hover:scale-105 hover:bg-blue-600"            >
-              Download CV
-            </a>
 
-            <a
-              href="https://wa.me/573136460357"
-              target="_blank"
-              className="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-xl transition hover:bg-white/10"
+            {/* Download CV */}
+            <MagneticButton
+              className="rounded-full bg-blue-500 px-8 py-4 font-medium text-white transition hover:scale-105 hover:bg-blue-600"
             >
-              Contact Me
-            </a>
+              <a href="/cv.pdf" download>
+                Download CV
+              </a>
+            </MagneticButton>
+
+            {/* Contact */}
+            <MagneticButton
+              className="rounded-full px-8 py-4 font-medium text-white transition hover:bg-white/10"
+            >
+              <a
+                href="https://wa.me/573136460357"
+                target="_blank"
+              >
+                Contact Me
+              </a>
+            </MagneticButton>
+
           </motion.div>
 
-          {/* TECH BADGES */}
+          {/* Tech Stack */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -103,11 +143,17 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="relative"
         >
+          {/* Glow */}
           <div className="absolute inset-0 rounded-[40px] bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-3xl" />
+          {/* Hover Glow */}
+          <div className="absolute inset-0 rounded-[40px] bg-blue-500/0 opacity-0 blur-3xl transition duration-700 group-hover:bg-blue-500/10 group-hover:opacity-100" />
 
-          <div className="relative rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl">
+          {/* Card */}
+          <div className="group relative rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:border-blue-500/30">
             
+            {/* Header */}
             <div className="mb-6 flex items-center justify-between">
+              
               <div>
                 <h3 className="text-2xl font-semibold text-white">
                   Digital Solutions
@@ -121,9 +167,11 @@ export default function Hero() {
               <div className="h-4 w-4 rounded-full bg-green-400" />
             </div>
 
+            {/* Cards */}
             <div className="space-y-5">
-              
-              <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
+
+              {/* Mobile */}
+              <div className="rounded-3xl border border-white/10 bg-black/30 p-6 transition duration-300 hover:border-blue-500/30 hover:bg-black/40">
                 <h4 className="text-lg font-semibold text-white">
                   Mobile Development
                 </h4>
@@ -133,7 +181,8 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
+              {/* Backend */}
+              <div className="rounded-3xl border border-white/10 bg-black/30 p-6 transition duration-300 hover:border-blue-500/30 hover:bg-black/40">
                 <h4 className="text-lg font-semibold text-white">
                   Backend & APIs
                 </h4>
@@ -143,7 +192,8 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-black/30 p-6">
+              {/* AI */}
+              <div className="rounded-3xl border border-white/10 bg-black/30 p-6 transition duration-300 hover:border-blue-500/30 hover:bg-black/40">
                 <h4 className="text-lg font-semibold text-white">
                   AI & Automation
                 </h4>
@@ -152,6 +202,7 @@ export default function Hero() {
                   Intelligent workflows and scalable systems
                 </p>
               </div>
+
             </div>
           </div>
         </motion.div>

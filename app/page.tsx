@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import Loader from "@/components/loader";
 import Particles from "@/components/particles";
 import NoiseOverlay from "@/components/noise-overlay";
+import Spotlight from "@/components/spotlight";
 
 export default function Home() {
 
@@ -33,6 +34,7 @@ export default function Home() {
       <Loader loading={loading} />
 
       <Particles />
+      <Spotlight />
       <NoiseOverlay />
 
       <ScrollProgress />
