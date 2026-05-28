@@ -116,8 +116,8 @@ export default function Contact() {
 
                     <div>
                       <p className="text-sm text-zinc-500">Email</p>
-                      <p className="text-white">
-                        victortique.dev@gmail.com
+                      <p className="break-all text-sm text-white md:text-base">
+                        ing.victor.tique@gmail.com
                       </p>
                     </div>
                   </div>
