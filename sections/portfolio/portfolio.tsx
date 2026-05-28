@@ -2,30 +2,35 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import ParallaxCard from "@/components/parallax-card";  
 
 const projects = [
   {
-    title: "Enterprise Mobile Platform",
+    title: "Tourism Multimedia App",
     category: "Mobile Development",
     description:
-      "Scalable cross-platform mobile application with modern architecture and enterprise integrations.",
-    tech: ["Flutter", "Firebase", "REST API"],
+      "Interactive tourism mobile application with multimedia content, augmented reality and integrated navigation experience.",
+    tech: ["Flutter", "Google Maps", "Firebase"],
+    image: "/projects/app1.png",
   },
 
   {
-    title: "AI Automation Dashboard",
-    category: "AI & Automation",
+    title: "Smart Tourism Maps",
+    category: "Maps & Navigation",
     description:
-      "Intelligent workflow automation platform with analytics, integrations and scalable backend systems.",
-    tech: ["React", "Node.js", "AI"],
+      "Modern geolocation platform designed to guide tourists through ecological routes, landmarks and interactive experiences.",
+    tech: ["Google Maps API", "React Native", "Location Services"],
+    image: "/projects/app2.png",
   },
 
   {
-    title: "Modern Web Platform",
-    category: "Full Stack Development",
+    title: "Digital Pet Identity Card",
+    category: "UI/UX Design",
     description:
-      "Responsive and high-performance web application focused on scalability and user experience.",
-    tech: ["Next.js", "PostgreSQL", "Tailwind"],
+      "Premium digital pet identification system with QR verification, responsive layout and elegant modern design.",
+    tech: ["Figma", "UI Design", "QR System"],
+    image: "/projects/app3.png",
   },
 ];
 
@@ -41,6 +46,7 @@ export default function Portfolio() {
       <div className="relative mx-auto max-w-7xl">
         
         {/* Header */}
+        <ParallaxCard>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,9 +67,10 @@ export default function Portfolio() {
             digital solutions focused on performance and business impact.
           </p>
         </motion.div>
+         </ParallaxCard>
 
         {/* Projects */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -79,38 +86,25 @@ export default function Portfolio() {
               <div className="grid gap-0 lg:grid-cols-2">
                 
                 {/* LEFT IMAGE */}
-                <div className="relative min-h-[320px] overflow-hidden bg-gradient-to-br from-blue-500/20 via-cyan-500/10 to-transparent">
-                  
-                  {/* Glow */}
-                  <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-3xl" />
-
-                  {/* Fake Dashboard */}
-                  <div className="absolute inset-0 flex items-center justify-center p-10">
+                    <div className="relative min-h-[420px] overflow-hidden">
                     
-                    <div className="w-full max-w-md rounded-[32px] border border-white/10 bg-black/40 p-6 backdrop-blur-xl">
-                      
-                      <div className="mb-6 flex items-center justify-between">
-                        <div>
-                          <h3 className="text-lg font-semibold text-white">
-                            {project.title}
-                          </h3>
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                    />
 
-                          <p className="text-sm text-zinc-400">
-                            {project.category}
-                          </p>
-                        </div>
+                    {/* Dark Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
 
-                        <div className="h-3 w-3 rounded-full bg-green-400" />
-                      </div>
+                    {/* Bottom Fade */}
+                    <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent" />
+                    
 
-                      <div className="space-y-4">
-                        <div className="h-4 rounded-full bg-white/10" />
-                        <div className="h-4 w-3/4 rounded-full bg-white/10" />
-                        <div className="h-24 rounded-2xl bg-blue-500/10" />
-                      </div>
+                    {/* Glow */}
+                    <div className="absolute inset-0 bg-blue-500/5 opacity-0 transition duration-700 group-hover:opacity-100" />
                     </div>
-                  </div>
-                </div>
 
                 {/* RIGHT CONTENT */}
                 <div className="flex flex-col justify-center p-10 lg:p-14">
@@ -119,7 +113,7 @@ export default function Portfolio() {
                     {project.category}
                   </p>
 
-                  <h3 className="text-3xl font-bold text-white md:text-4xl">
+                  <h3 className="text-2xl font-bold text-white md:text-4xl">
                     {project.title}
                   </h3>
 

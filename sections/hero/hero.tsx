@@ -58,13 +58,17 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <button className="rounded-full bg-blue-500 px-8 py-4 font-medium text-white transition hover:scale-105 hover:bg-blue-600">
-              View Projects
-            </button>
+            <a href="/cv.pdf" download className="rounded-full bg-blue-500 px-8 py-4 font-medium text-white transition hover:scale-105 hover:bg-blue-600"            >
+              Download CV
+            </a>
 
-            <button className="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-xl transition hover:bg-white/10">
+            <a
+              href="https://wa.me/573136460357"
+              target="_blank"
+              className="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-xl transition hover:bg-white/10"
+            >
               Contact Me
-            </button>
+            </a>
           </motion.div>
 
           {/* TECH BADGES */}

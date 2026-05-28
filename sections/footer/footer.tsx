@@ -28,14 +28,14 @@ export default function Footer() {
           
           <div className="flex gap-6">
             <a
-              href="#"
+              href="https://linkedin.com/in/victortiquepinto"
               className="text-zinc-400 transition hover:text-blue-400"
             >
               LinkedIn
             </a>
 
             <a
-              href="#"
+              href="https://github.com/victortiquepinto"
               className="text-zinc-400 transition hover:text-blue-400"
             >
               GitHub
